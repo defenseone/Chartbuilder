@@ -83,7 +83,7 @@ var RendererWrapper = React.createClass({
 		var chartType = this.props.model.metadata.chartType;
 		var size_calcs = {};
 		if (this.props.width) {
-			var bp = breakpoints.getBreakpointObj(this.props.enableResponsive, this.props.width);
+			var bp = this._getBreakpointObj(this.props.width);
 			size_calcs = this._resizeUpdate(this.props, bp, this.props.width);
 		}
 
@@ -124,7 +124,7 @@ var RendererWrapper = React.createClass({
 
 	_updateWidth: function(force) {
 		var domNodeWidth = ReactDOM.findDOMNode(this).offsetWidth;
-		var bp = breakpoints.getBreakpointObj(this.props.enableResponsive, domNodeWidth);
+		var bp = this._getBreakpointObj(domNodeWidth);
 		if (domNodeWidth !== this.state.domNodeWidth) {
 			var resized = this._resizeUpdate(this.props, bp, domNodeWidth);
 			if (resized) {
@@ -144,6 +144,16 @@ var RendererWrapper = React.createClass({
 	componentWillUnmount: function() {
 		if (this.props.enableResponsive) {
 			window.removeEventListener("resize", this._updateWidth);
+		}
+	},
+
+	_getBreakpointObj: function(width) {
+		if (this.props.enableResponsive || !width) {
+			return breakpoints.filter(function(bp) {
+				return width > bp.min_size;
+			})[0];
+		} else {
+			return breakpoints[1];
 		}
 	},
 
@@ -242,7 +252,7 @@ var RendererWrapper = React.createClass({
 
 		var margin = this.state.chartConfig.display.margin;
 		var metadataSvg = [];
-		var title;
+		var title,sub;
 
 		var translate = {
 			top: margin.top,
@@ -258,11 +268,25 @@ var RendererWrapper = React.createClass({
 						text={metadata.title}
 						key="title"
 						translate={[translate.left, translate.top]}
+						translate={[translate.left, translate.top]}
 						align="top"
 						className="svg-text-title"
 					/>
 				);
 				metadataSvg.push(title);
+			}
+
+			if (metadata.sub && metadata.sub !== "") {
+				sub = (
+					<SvgText
+						text={metadata.sub}
+						key="sub"
+						translate={[translate.left + 2, translate.top + 26]}
+						align="top"
+						className="svg-text-sub"
+					/>
+				);
+				metadataSvg.push(sub);
 			}
 
 			metadataSvg.push(

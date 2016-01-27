@@ -271,7 +271,7 @@ var SvgRectLabel = React.createClass({
 		// and if current label is unchanged
 		if (prevNode) {
 			y = prevNode.y;
-			x = ((prevNode.x * this.props.dimensions.width) +
+			x = ((prevNode.x * this.props.dimensions.width) + 
 					 prevNode.width + nextProps.labelConfig.xMargin);
 
 			// If no `this.props.prevNode`, this is the first time the label is aware

@@ -1,5 +1,5 @@
 $em_size = 20px
-$em_size_small = 14px
+$em_size_small = 12px
 $em_size_large = 36px
 
 div.renderer-wrapper
@@ -35,7 +35,7 @@ svg
   font-size $em_size
   .axis
     .tick
-      font-family $font-sans-light
+      font-family $font-secondary
       &[data-anchor="middle"]
         text
           text-anchor middle
@@ -43,6 +43,7 @@ svg
         fill $color-chart-axis-text
         shape-rendering crispEdges
         text-anchor middle
+        font-size $em_size_small
       &:first-child
         text
           text-anchor middle
@@ -96,7 +97,7 @@ svg
         stroke-linecap round
         stroke-linejoin round
     .label
-      font-family $font-sans-light
+      font-family $font-secondary
 
   .column-label
     fill $color-chart-axis-text
@@ -123,12 +124,18 @@ svg
       font-style italic
 
   &.svg-text-credit
-    font-size $em_size*0.6
+    font-size $em_size*0.5
     fill $color-chart-meta
+    font-family $font-secondary
+    font-weight: bold
+    text-transform: uppercase
     text-anchor start
   &.svg-text-source
-    font-size $em_size*0.6
-    fill $color-chart-meta
+    font-size $em_size*0.5
+    fill #b39602
+    font-family $font-secondary
+    font-weight: bold
+    text-transform: uppercase
     //text
       //dominant-baseline central
     &.left
@@ -137,17 +144,22 @@ svg
       text-anchor end
   &.svg-text-title
     fill $color-body-text
-    font-family $font-sans
+    font-family $font-sans-bold
     font-size $em_size
-
+  &.svg-text-sub
+    fill $color-sub-text
+    font-family $font-secondary 
+    font-size $em_size_small
+  
 .svg-source-pipe
 	stroke $color-chart-meta
 	fill none
 	stroke-width 0.8px
 
 .svg-label-text
-  font-size $em_size
-  font-family $font-sans-light
+  font-size 14px
+  font-weight bold
+  font-family $font-secondary
   cursor move
 
 .crosshair
@@ -177,7 +189,7 @@ svg
     &.svg-text-source
       font-size $em_size*0.6
     &.svg-text-title
-      font-size $em_size
+      font-size $em_size*1.3
 
 .small
   .em-size
@@ -224,10 +236,10 @@ svg
     &.svg-text-source
       font-size $em_size*0.6
     &.svg-text-title
-      font-size $em_size
+      font-size $em_size*1.3
 
   .svg-label-text
     font-size $em_size
 
 .cb-credit-logo
-	fill $color-chart-meta
+	fill $color-chart-meta  
