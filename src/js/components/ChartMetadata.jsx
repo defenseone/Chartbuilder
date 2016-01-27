@@ -66,7 +66,6 @@ var ChartMetadata = React.createClass({
 			credit: PropTypes.string,
 			sub: PropTypes.string,
 			title: PropTypes.string
-			
 		}),
 		stepNumber: PropTypes.string,
 		additionalComponents: PropTypes.array

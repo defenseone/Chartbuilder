@@ -1,4 +1,3 @@
-
 // Svg text elements used to describe chart
 var React = require("react");
 var PropTypes = React.PropTypes;
