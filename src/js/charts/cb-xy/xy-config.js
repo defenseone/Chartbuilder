@@ -48,7 +48,7 @@ var display = {
 		smallSpot: (3 / 4)
 	},
 	margin: {
-		top: "0.85em",
+		top: "1em",
 		right: "0.5em",
 		bottom: "0.5em",
 		left: "0.5em"
@@ -131,8 +131,8 @@ var defaultProps = {
 		chartType: 'xy',
 		title: "",
 		sub: "",
-		source: "",
-		credit: "Made with Chartbuilder",
+		source: "TK Data Source",
+		credit: "TK Somebody | DefenseOne.com",
 		size: "auto"
 	}
 };

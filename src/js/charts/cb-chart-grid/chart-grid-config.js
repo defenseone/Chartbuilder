@@ -37,7 +37,7 @@ var display = {
 	bottomPaddingWithoutFooter: "0.5em",
 	xy: require("../cb-xy/xy-config").display,
 	margin: {
-		top: "0.9em",
+		top: "1em",
 		right: "0.5em",
 		bottom: "0.5em",
 		left: "0.5em"
@@ -114,8 +114,8 @@ var defaultProps = {
 		chartType: "chartgrid",
 		title: "",
 		sub: "",
-		source: "",
-		credit: "Made with Chartbuilder",
+		source: "TK Data Source",
+		credit: "TK Somebody | DefenseOne.com",
 		size: "auto"
 	}
 };
